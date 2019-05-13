@@ -20,7 +20,6 @@
     document.querySelector('#nearby-btn').addEventListener('click', loadNearbyItems);
     document.querySelector('#fav-btn').addEventListener('click', loadFavoriteItems);
     document.querySelector('#recommend-btn').addEventListener('click', loadRecommendedItems);
-    document.querySelector('#wordclud-btn').addEventListener('click', loadWordCloud);
     validateSession();
     // onSessionValid({"user_id":"1111","name":"John Smith","status":"OK"});
   }
@@ -460,40 +459,6 @@
       }
     );
   }
-  
-  //Customized function for generating a personal wordcloud based on favorite
-  function loadWordCloud() {
-      activeBtn('wordcloud-btn');
-
-      // The request parameters
-      var url = './wordcloud';
-      var params = 'user_id=' + user_id + '&lat=' + lat + '&lon=' + lng;
-
-      var req = JSON.stringify({});
-
-      // display loading message
-      showLoadingMessage('Loading your personal wordcloud ...');
-
-      // make AJAX call
-      ajax(
-          'GET',
-          url + '?' + params,
-          req,
-          // successful callback
-          function(res) {
-              var items = JSON.parse(res);
-              if (!items || items.length === 0) {
-                  showWarningMessage('No wordcloud is generated. Make sure you have favorites.');
-              } else {
-                  listItems(items);
-              }
-          },
-          // failed callback
-          function() {
-              showErrorMessage('Cannot load your wordcloud.');
-          });
-  }
-  
 
   /**
    * API #4 Toggle favorite (or visited) items

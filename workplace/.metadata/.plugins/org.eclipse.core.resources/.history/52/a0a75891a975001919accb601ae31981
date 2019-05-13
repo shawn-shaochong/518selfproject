@@ -244,8 +244,7 @@ ul {
 	color: #624630;
 	list-style: none;
 	margin-left: 180px;
-	/* change the value of min-height when we add more functions on the side bar */
-	min-height: 308.8px;
+	min-height: 250px;
 	padding: 10px;
 }
 

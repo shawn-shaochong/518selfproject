@@ -82,7 +82,7 @@ ul {
 .container>header {
 	align-items: center;
 	background:
-		url('https://www.mch-group.com/-/media/mch-group/Images/Content/News/Blog/2017/2017-04/mch-group-live-marketing-aktivierung.jpg')
+		url('http://eudreamvilla.com/wp-content/uploads/2017/10/romantic-dinner.jpg')
 		no-repeat 50% 40%;
 	background-size: 100%;
 	display: flex;
@@ -244,8 +244,7 @@ ul {
 	color: #624630;
 	list-style: none;
 	margin-left: 180px;
-	/* change the value of min-height when we add more functions on the side bar */
-	min-height: 308.8px;
+	min-height: 250px;
 	padding: 10px;
 }
 

@@ -99,19 +99,19 @@
   
   <footer>
     <p class="title">What We Do</p>
-    <p>"Help you find the best event around."</p>
+    <p>"Help you find the best place around."</p>
     <ul>
       <li>
         <p><i class="fa fa-map-o fa-2x"></i></p>
-        <p>Schenectady, NY</p>
+        <p>LaiOffer office, CA</p>
       </li>
       <li>
         <p><i class="fa fa-envelope-o fa-2x"></i></p>
-        <p>shawn.shaochong@gmail.com</p>
+        <p>info@laioffer.com</p>
       </li>
       <li>
         <p><i class="fa fa-phone fa-2x"></i></p>
-        <p>+1 518 364 7505</p>
+        <p>+1 800 123 456</p>
       </li>
     </ul>
   </footer>
