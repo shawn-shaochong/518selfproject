@@ -16,8 +16,8 @@
   <header class="top-header">
     <nav class="top-nav">
       <a href="#">Home</a>
-      <a href="#">Contact</a>
-      <a href="#">About</a>
+      <a href="https://www.linkedin.com/in/shaochong-wang-722778106/">Contact</a>
+      <a href="https://github.com/wscwuditiancai/518selfproject">About</a>
     </nav>
     <span id="welcome-msg"></span>
     <a id="logout-link" href="logout">Logout</a>
@@ -101,9 +101,9 @@
   </div>
   
   <!-- This part is for the chatbox -->
-<%--   <div>
+  <div>
 	 <jsp:include page="/WEB-INF/chatbox.jsp" />
-  </div> --%>
+  </div>
   
   <footer>
     <p class="title">What We Do</p>

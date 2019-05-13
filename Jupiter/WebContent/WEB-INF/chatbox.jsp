@@ -19,14 +19,10 @@
 				<div class="btn-group" style="width: 90%">
 					<select name="userInput" id="userInput" class="btn btn-secondary btn-sm dropdown-toggle" required onChange="extraInputs()">	
 						<option value="" disabled selected>Ask me a question!</option>
-						<option value="When is my next appointment?">When is my next appointment?</option>
+						<option value="What are my recommended events?">When is my next appointment?</option>
 					<%					
-						String role=(String)session.getAttribute("role");
-						if(role.equals("Doctor")){
-							out.println("<option value=\"Who is my next appointment?\">Who is my next appointment?</option>");
-							out.println("<option value=\"How many appointments do I have left today?\">How many appointments do I have left today?</option>");
-							out.println("<option value=\"What is my availability for: \">What is my availability for:</option>");
-						}							
+						out.println("<option value=\"What are my recommended events?\">What are my recommended events?</option>");
+																		
 					%>
 					</select>
 				</div>
@@ -35,7 +31,7 @@
 		   			<i class="fas fa-paper-plane"></i>
 		   		</button>
 		   		
-		   		<input type="date" id="availabilityInput" style="display: none">	
+		   		<!-- <input type="date" id="availabilityInput" style="display: none">	 -->
 			</form>
 		</div>
 </div>
@@ -96,7 +92,7 @@
 				}					
 			}
 			
-			function extraInputs(){
+/* 			function extraInputs(){
 				var select = document.getElementById("userInput");
 				var value = select.options[select.selectedIndex].value;
 				if(value=="What is my availability for: "){
@@ -105,5 +101,5 @@
 				else{
 					document.getElementById("availabilityInput").style.display = "none";
 				}
-			}
+			} */
 		</script>
