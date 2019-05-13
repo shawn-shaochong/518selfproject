@@ -1,5 +1,0 @@
-package db.mongodb;
-
-public class MongoDBConnection {
-
-}
