@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,6 +99,11 @@
       </ul>
     </section>
   </div>
+  
+  <!-- This part is for the chatbox -->
+<%--   <div>
+	 <jsp:include page="/WEB-INF/chatbox.jsp" />
+  </div> --%>
   
   <footer>
     <p class="title">What We Do</p>

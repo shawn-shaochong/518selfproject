@@ -169,4 +169,18 @@ public class MongoDBConnection implements DBConnection {
 		//return true;
 		return false;
 	}
+	
+	@Override
+	public boolean registerUser(String userId, String password, String firstname, String lastname, String email) {
+		// db.users.find({user_id:userId})
+		FindIterable<Document> iterable = db.getCollection("users").find(eq("user_id", userId));
+		if (iterable.first() != null) {
+			return false;
+		} else {
+			db.getCollection("users").insertOne(new Document().append("email", email).append("first_name", firstname).append("last_name", lastname)
+					.append("password", password).append("user_id", userId));
+		}
+		return true;
+	}
+	
 }
