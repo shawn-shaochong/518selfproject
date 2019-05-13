@@ -10,7 +10,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class Email  {
+public class email  {
    // private static String USER_NAME = "producttesting.shaochong";  // GMail user name (just the part before "@gmail.com")
    // private static String PASSWORD = "asDF12#$"; // GMail password
     //private static String RECIPIENT = "lizard.bill@myschool.edu";
@@ -30,8 +30,7 @@ public class Email  {
 	
 
 	public static void sendFromGMail(String receiver,String username) {
-        System.out.println("I am inside email function!!!");
-		Properties props = System.getProperties();
+        Properties props = System.getProperties();
         String host = "smtp.gmail.com";
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
@@ -47,8 +46,6 @@ public class Email  {
 
         try {
             message.setFrom(new InternetAddress("producttesting.shaochong"));
-            System.out.println("I am inside email function!!!22222");
-
 //            InternetAddress[] toAddress = new InternetAddress[to.length];
 //
 //            // To get the array of addresses

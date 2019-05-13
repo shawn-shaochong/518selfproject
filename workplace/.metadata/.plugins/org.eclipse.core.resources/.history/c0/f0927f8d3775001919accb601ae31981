@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import rpc.email;
 //findout how to import email
 //import rpc.email.sendFromGMail;
 import org.json.JSONObject;
@@ -49,7 +49,7 @@ public class Register extends HttpServlet {
 			JSONObject obj = new JSONObject();
 			if (connection.registerUser(userId, password, firstname, lastname, email)) {
 				//implement email funciton here
-				Email.sendFromGMail(email,firstname);
+				//email.sendFromGmail(email,firstname);
 				obj.put("status", "OK");
 			} else {
 				obj.put("status", "User Already Exists");
