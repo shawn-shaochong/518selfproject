@@ -4,11 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import entity.Item;
@@ -68,4 +71,20 @@ public class RpcHelper {
 		}
 		return result;
 	}
+	
+	public List<String> getValuesForGivenKey(String jsonArrayStr, String key) throws JSONException {
+	    JSONArray jsonArray = new JSONArray(jsonArrayStr);
+	    return IntStream.range(0, jsonArray.length())
+	      .mapToObj(index -> {
+			try {
+				return ((JSONObject)jsonArray.get(index)).optString(key);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return key;
+		})
+	      .collect(Collectors.toList());
+	}
+	
 }

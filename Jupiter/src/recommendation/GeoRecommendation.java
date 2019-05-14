@@ -41,6 +41,9 @@ public class GeoRecommendation {
 			});
 			
 			// Step 3, search based on category, filter out favorite items
+			//it will generate a sorted array with categories with higher number first, then the lower number
+			//the system will search for categories with higher number first, then search for the lower number thus showing all the items a user might like
+			//if the item is already liked by the user, it will be removed from the recommendedItems list
 			Set<String> visitedItemIds = new HashSet<>();
 			for (Entry<String, Integer> category : categoryList) {
 				List<Item> items = connection.searchItems(lat, lon, category.getKey());

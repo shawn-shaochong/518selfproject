@@ -101,6 +101,11 @@
     </section>
   </div>
   
+    <!-- This part is for the wordcloud -->
+       <div id="wordcloudpicture">
+
+      </div>
+  
   <!-- This part is for the chatbox -->
 
   <div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10; background:white ">
