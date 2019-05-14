@@ -10,6 +10,7 @@
   <title>Event Recommendation</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -101,19 +102,17 @@
   </div>
   
   <!-- This part is for the chatbox -->
-  <div>
-	 <jsp:include page="./chatbox.jsp" />
-  </div>
+
   <div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10; background:white ">
 		<div id="chat" style="display: block">
-			<button type="button" class="btb btn-dark btn-lg btn-block" id="openChat" >Chat</button>
+			<button type="button" class="fa fa-wechat" id="openChat" >Chat</button>
 		</div>
 		<div id="chatbox" style="display:none; border:solid; padding: 2%">
 			<form name="chatform" class="form-container" onsubmit="return false;">
 				<div>
 			    	<h3 style="float:left; text-align: left">Chat</h3>
 			    	<button id="closeChat" style="float:right; text-align: right; border:none; background: white" id="close">
-			    		<i class="fas fa-times"></i>
+			    		<i class="fa fa-close"></i>
 			    	</button>
 		    	</div>
 		    	<textarea placeholder="Hello!" name="chatArea" rows="7" style="width: 100%" id="chatArea" readonly><%
@@ -135,7 +134,7 @@
 				</div>
 				
 				<button type="button" style="float: right; text-align: right; padding: 2%; border:none; background: white" id="updateChat">
-		   			<i class="fas fa-paper-plane"></i>
+		   			<i class="fa fa-send"></i>
 		   		</button>
 		   		
 		   		<!-- <input type="date" id="availabilityInput" style="display: none">	 -->
