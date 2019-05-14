@@ -103,16 +103,18 @@
   
   <!-- This part is for the chatbox -->
 
-  <div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10; background:white ">
+  <div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10;  ">
 		<div id="chat" style="display: block">
-			<button type="button" class="fa fa-wechat" id="openChat" >Chat</button>
+			<button type="button" style="float:right; text-align: right; border:none; background: transparent" id="openChat" >
+			<i class="fa fa-wechat"  style="color:white;font-size:48px "></i>
+			</button>
 		</div>
 		<div id="chatbox" style="display:none; border:solid; padding: 2%">
 			<form name="chatform" class="form-container" onsubmit="return false;">
 				<div>
 			    	<h3 style="float:left; text-align: left">Chat</h3>
-			    	<button id="closeChat" style="float:right; text-align: right; border:none; background: white" id="close">
-			    		<i class="fa fa-close"></i>
+			    	<button id="closeChat" style="float:right; text-align: right; border:none; background: transparent" id="close">
+			    		<i class="fa fa-close" style="color:white"></i>
 			    	</button>
 		    	</div>
 		    	<textarea placeholder="Hello!" name="chatArea" rows="7" style="width: 100%" id="chatArea" readonly><%
@@ -131,11 +133,11 @@
 																		
 					%> --%>
 					</select>
+				<button type="button" style="float: right; text-align: right; padding: 0%; border:none; background: transparent" id="updateChat">
+		   			<i class="fa fa-send" style="color:white"></i>
+		   		</button>
 				</div>
 				
-				<button type="button" style="float: right; text-align: right; padding: 2%; border:none; background: white" id="updateChat">
-		   			<i class="fa fa-send"></i>
-		   		</button>
 		   		
 		   		<!-- <input type="date" id="availabilityInput" style="display: none">	 -->
 			</form>
