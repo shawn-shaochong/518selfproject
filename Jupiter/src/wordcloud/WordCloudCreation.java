@@ -13,7 +13,7 @@ public class WordCloudCreation {
                                                               "66FFCC", "33CC99", "009966", "006633",
                                                               "00FFFF", "0099FF", "0033FF", "003388",
                                                               "CC99FF", "9933FF", "6600CC", "330066"};
-
+    //\n height:800px; if necessary
     private static final String HTML_TEMPLATE = "<div style=\"\n width: 800px;\n background-color: rgb(250,250,250);\n"
                                                 + " border: 5px grey solid;\ntext-align: center\">\n"
                                                 + "WORDS\n"

@@ -63,7 +63,7 @@
     var avatar = document.querySelector('#avatar');
     var welcomeMsg = document.querySelector('#welcome-msg');
     var logoutBtn = document.querySelector('#logout-link');
-
+    var chat = document.querySelector('#chat');
     welcomeMsg.innerHTML = 'Welcome, ' + user_fullname;
 
     showElement(itemNav);
@@ -73,6 +73,7 @@
     showElement(logoutBtn, 'inline-block');
     hideElement(loginForm);
     hideElement(registerForm);
+    showElement(chat);
 
     initGeoLocation();
   }
@@ -85,6 +86,7 @@
     var avatar = document.querySelector('#avatar');
     var welcomeMsg = document.querySelector('#welcome-msg');
     var logoutBtn = document.querySelector('#logout-link');
+    var chat = document.querySelector('#chat');
 
     hideElement(itemNav);
     hideElement(itemList);
@@ -92,6 +94,7 @@
     hideElement(logoutBtn);
     hideElement(welcomeMsg);
     hideElement(registerForm);
+    hideElement(chat);
 
     clearLoginError();
     showElement(loginForm);
@@ -114,6 +117,7 @@
     var avatar = document.querySelector('#avatar');
     var welcomeMsg = document.querySelector('#welcome-msg');
     var logoutBtn = document.querySelector('#logout-link');
+    var chat = document.querySelector('#chat');
 
     hideElement(itemNav);
     hideElement(itemList);
@@ -121,6 +125,7 @@
     hideElement(logoutBtn);
     hideElement(welcomeMsg);
     hideElement(loginForm);
+    hideElement(chat);
     
     clearRegisterResult();
     showElement(registerForm);
@@ -467,16 +472,21 @@
   //Customized function for generating a personal wordcloud based on favorite
   function loadWordCloud() {
       activeBtn('wordcloud-btn');
+      var itemList = document.querySelector('#item-list');
 
       // The request parameters
       var url = './wordcloud';
       var params = 'user_id=' + user_id + '&lat=' + lat + '&lon=' + lng;
 
       var req = JSON.stringify({});
+/*      var itemList = document.querySelector('#item-list');
+      itemList.innerHTML = '<p class="notice"><i class="fa fa-spinner fa-spin"></i> ' +
+        msg + '</p>';*/
 
       // display loading message
-      showLoadingMessage('Loading your personal wordcloud ...');
-
+      /*showLoadingMessage('Loading your personal wordcloud ...');*/
+      itemList.innerHTML = '';
+      /*document.getElementById('item-list').style.height="900px";*/
       // make AJAX call
       ajax(
           'GET',
@@ -484,12 +494,14 @@
           req,
           // successful callback
           function(res) {
-              var items = JSON.parse(res);
-              if (!items || items.length === 0) {
-                  showWarningMessage('No wordcloud is generated. Make sure you have favorites.');
-              } else {
-                  listItems(items);
-              }
+        	  console.log(res);
+        	  document.getElementById('item-list').innerHTML += res;
+//              var items = JSON.parse(res);
+//              if (!items || items.length === 0) {
+//                  showWarningMessage('No wordcloud is generated. Make sure you have favorites.');
+//              } else {
+//                  listItems(items);
+//              }
           },
           // failed callback
           function() {

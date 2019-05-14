@@ -67,6 +67,11 @@ public class wordCloud extends HttpServlet {
     	words=words.replace("[", " ");
     	words=words.replace("]", " ");
     	words=words.replace(",", " ");
+    	words=words.replace("The", " ");
+    	words=words.replace("at", " ");
+    	words=words.replace("the", " ");
+    	words=words.replace("Rd", " ");
+    	words=words.replace("Day", " ");
     	System.out.println(words);
     	
     	HashMap<String, Integer> map = new HashMap<>();

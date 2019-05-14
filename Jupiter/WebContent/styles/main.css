@@ -249,6 +249,16 @@ ul {
 	padding: 10px;
 }
 
+/* #wordcloudpicture {
+	background: #F2EBD9;
+	color: #624630;
+	list-style: none;
+	margin-left: 180px;
+	change the value of min-height when we add more functions on the side bar
+	min-height: 308.8px;
+	padding: 10px;
+} */
+
 #item-list .notice {
 	font-size: 16px;
 	padding: 60px;

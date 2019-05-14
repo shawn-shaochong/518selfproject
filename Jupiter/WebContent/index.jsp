@@ -101,10 +101,10 @@
     </section>
   </div>
   
-    <!-- This part is for the wordcloud -->
+<!--     This part is for the wordcloud
        <div id="wordcloudpicture">
 
-      </div>
+      </div> -->
   
   <!-- This part is for the chatbox -->
 
