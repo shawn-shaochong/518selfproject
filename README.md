@@ -6,7 +6,7 @@ Shaochong Wang 518 personal project
 Event recommendation system
 git: https://github.com/shwan-shaochong/518selfproject
 website link: http://ec2-18-191-59-220.us-east-2.compute.amazonaws.com:8080/Jupiter/
-
+username:1234 password:1234
 Something about this project
 
 This is a class project learning from a online class. Total relization time is about 80 hours, spent additional 40+ hours to add additional features.
