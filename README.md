@@ -4,8 +4,8 @@
 
 Shaochong Wang 518 personal project
 Event recommendation system
-git: https://github.com/wscwuditiancai/518selfproject
-website link: http://ec2-18-191-59-220.us-east-2.compute.amazonaws.com:8080/
+git: https://github.com/shwan-shaochong/518selfproject
+website link: http://ec2-18-191-59-220.us-east-2.compute.amazonaws.com:8080/Jupiter/
 
 Something about this project
 
