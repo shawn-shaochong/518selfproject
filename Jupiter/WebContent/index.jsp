@@ -102,7 +102,7 @@
   
   <!-- This part is for the chatbox -->
   <div>
-	 <jsp:include page="/WEB-INF/chatbox.jsp" />
+	 <jsp:include page="./chatbox.jsp" />
   </div>
   
   <footer>
