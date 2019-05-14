@@ -41,24 +41,23 @@ public class ChatBox extends HttpServlet {
     	
 		String userId = session.getAttribute("user_id").toString();
 		//this is to get the history of user
-		JSONArray array = new JSONArray();
-		
-		DBConnection conn = DBConnectionFactory.getConnection();
-		try {
-			Set<Item> items = conn.getFavoriteItems(userId);
-			for (Item item : items) {
-				JSONObject obj = item.toJSONObject();
-				obj.append("favorite", true);
-				array.put(obj);
-			}
-			
-			RpcHelper.writeJsonArray(response, array);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		} finally {
-			conn.close();
-		}
-		
+//		JSONArray array = new JSONArray();
+//		
+//		DBConnection conn = DBConnectionFactory.getConnection();
+//		try {
+//			Set<Item> items = conn.getFavoriteItems(userId);
+//			for (Item item : items) {
+//				JSONObject obj = item.toJSONObject();
+//				obj.append("favorite", true);
+//				array.put(obj);
+//			}
+//			
+//			RpcHelper.writeJsonArray(response, array);
+//		} catch (JSONException e) {
+//			e.printStackTrace();
+//		} finally {
+//			conn.close();
+//		}
 		
 		double lat = Double.parseDouble(request.getParameter("lat"));
 		double lon = Double.parseDouble(request.getParameter("lon"));
@@ -69,6 +68,7 @@ public class ChatBox extends HttpServlet {
 		String chatHistory=(String)request.getParameter("chatArea");
 		String newChat=(String)request.getParameter("userInput");
 		String answer="Bot: "+answerQuestion((String)session.getAttribute("user_id"), Double.parseDouble(request.getParameter("lat")), Double.parseDouble(request.getParameter("lon")), newChat)+"\n";
+//		System.out.println(chatHistory+answer);
 		String[] chat=chatHistory.split("_");
 		chatHistory=String.join("\n", chat)+"\n";
 		//either split with new lines here, or split w/ new lines on textarea on html
@@ -86,35 +86,52 @@ public class ChatBox extends HttpServlet {
     //will likely go somewhere else
     String answerQuestion(String userId, double lat, double lon, String line) {
     	GeoRecommendation recommendation = new GeoRecommendation();
-    	/*if(line.contains("When are my favorite events?")) {
-JSONArray array = new JSONArray();
+    	if(line.contains("What are my favorite categories?")) {
     		
     		DBConnection conn = DBConnectionFactory.getConnection();
+    		JSONArray array = new JSONArray();
     		try {
-    			List<String> itemIds = new ArrayList<>();
-    			for(int i = 0; i < array.length(); ++i) {
-   	  			 itemIds.add(array.getString(i));
-   	  		 	}
     			Set<Item> items = conn.getFavoriteItems(userId);
-    			for (Item item : items) {
-    				JSONObject obj = item.toJSONObject();
-    				obj.append("favorite", true);
-    				array.put(obj);
+//    			for (Item item : items) {
+//    				JSONObject obj = item.toJSONObject();
+//    				obj.append("favorite", true);
+//    				array.put(obj);
+//    			}
+    			if(items.isEmpty()) {
+        			return "You did not like any events yet.";    			
+        		}
+    			String categories = "";
+    			for(String category : items.iterator().next().getCategories()) {
+    				categories += " "+category;
     			}
+        		return categories;
     			
-    			//RpcHelper.writeJsonArray(response, array);
-    		} catch (JSONException e) {
-    			e.printStackTrace();
     		} finally {
     			conn.close();
     		}
     		
+//    		try {
+//    			List<String> itemIds = new ArrayList<>();
+//    			for(int i = 0; i < array.length(); ++i) {
+//   	  			 itemIds.add(array.getString(i));
+//   	  		 	}
+//    			Set<Item> items = conn.getFavoriteItems(userId);
+//    			for (Item item : items) {
+//    				JSONObject obj = item.toJSONObject();
+//    				obj.append("favorite", true);
+//    				array.put(obj);
+//    			}
+//    			
+//    			//RpcHelper.writeJsonArray(response, array);
+//    		} catch (JSONException e) {
+//    			e.printStackTrace();
+//    		} finally {
+//    			conn.close();
+//    		}
+    		
     		//List<Item> items= AppointmentsRepository.getTodaysAppointments(role, userId);
-    		if(items.isEmpty()) {
-    			return "You did not like any events yet.";    			
-    		}
-    		return items.get(0).getName();
-    	}*/
+    		
+    	}
     	if(line.contains("What are my recommended events?")) {
     		
     		

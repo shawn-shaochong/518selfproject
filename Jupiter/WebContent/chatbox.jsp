@@ -1,4 +1,4 @@
-<div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10">
+<%-- <div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10">
 		<div id="chat" style="display: block">
 			<button type="button" class="btb btn-dark btn-lg btn-block" onclick="openChat()">Chat</button>
 		</div>
@@ -102,4 +102,4 @@
 					document.getElementById("availabilityInput").style.display = "none";
 				}
 			} */
-		</script>
+		</script> --%>

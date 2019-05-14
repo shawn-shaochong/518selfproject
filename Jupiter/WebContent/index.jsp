@@ -104,7 +104,44 @@
   <div>
 	 <jsp:include page="./chatbox.jsp" />
   </div>
-  
+  <div style="width: 30%; bottom: 0; right: 0;  position: fixed; z-index:10; background:white ">
+		<div id="chat" style="display: block">
+			<button type="button" class="btb btn-dark btn-lg btn-block" id="openChat" >Chat</button>
+		</div>
+		<div id="chatbox" style="display:none; border:solid; padding: 2%">
+			<form name="chatform" class="form-container" onsubmit="return false;">
+				<div>
+			    	<h3 style="float:left; text-align: left">Chat</h3>
+			    	<button id="closeChat" style="float:right; text-align: right; border:none; background: white" id="close">
+			    		<i class="fas fa-times"></i>
+			    	</button>
+		    	</div>
+		    	<textarea placeholder="Hello!" name="chatArea" rows="7" style="width: 100%" id="chatArea" readonly><%
+		    		String chatHistory=(String)session.getAttribute("chat");
+			    	if(chatHistory!=null){
+			    		out.print(chatHistory);
+			    	}
+		    	%></textarea>
+				<div class="btn-group" style="width: 90%">
+					<select name="userInput" id="userInput" class="btn btn-secondary btn-sm dropdown-toggle" required >	
+						<option value="" disabled selected>Ask me a question!</option>
+						<option value="What are my recommended events?">What are my recommended events?</option>
+						<option value="What are my favorite categories?">What are my favorite categories?</option>
+<%-- 					<%					
+						out.println("<option value=\"What are my recommended events?\">What are my recommended events?</option>");
+																		
+					%> --%>
+					</select>
+				</div>
+				
+				<button type="button" style="float: right; text-align: right; padding: 2%; border:none; background: white" id="updateChat">
+		   			<i class="fas fa-paper-plane"></i>
+		   		</button>
+		   		
+		   		<!-- <input type="date" id="availabilityInput" style="display: none">	 -->
+			</form>
+		</div>
+</div>
   <footer>
     <p class="title">What We Do</p>
     <p>"Help you find the best event around."</p>

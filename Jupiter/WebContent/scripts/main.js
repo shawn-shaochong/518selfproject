@@ -21,6 +21,9 @@
     document.querySelector('#fav-btn').addEventListener('click', loadFavoriteItems);
     document.querySelector('#recommend-btn').addEventListener('click', loadRecommendedItems);
     document.querySelector('#wordcloud-btn').addEventListener('click', loadWordCloud);
+    document.querySelector('#openChat').addEventListener('click', openChat);
+    document.querySelector('#closeChat').addEventListener('click', closeChat);
+    document.querySelector('#updateChat').addEventListener('click', updateChat);
     validateSession();
     // onSessionValid({"user_id":"1111","name":"John Smith","status":"OK"});
   }
@@ -658,6 +661,60 @@
     itemList.appendChild(li);
   }
 
+  function openChat() {
+		document.getElementById("chatbox").style.display = "block";
+		document.getElementById("chat").style.display = "none";
+	}
+	
+	function closeChat() {
+		document.getElementById("chatbox").style.display = "none";
+		document.getElementById("chat").style.display = "block";
+	}
+	
+	var request;
+	
+	function updateChat(){
+		if(document.getElementById("userInput").value==""){
+			return;
+		}
+		var chatHistory=document.getElementById("chatArea").value;
+		var question=document.getElementById("userInput").value;
+		console.log(question);
+		var newChat="Me: "+question;
+//		if(question.includes("availability")){
+//			newChat+=document.getElementById("availabilityInput").value;
+//		}
+		chatHistory+=newChat;
+		document.getElementById("chatArea").value=chatHistory+"\n";	
+						
+		if (window.XMLHttpRequest) {
+	        request=new XMLHttpRequest();
+	    } else if (window.ActiveXObject) {
+	        request= new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+		chatHistory = chatHistory.replace(new RegExp('\n', 'g'), '_');
+		var path = "chatbox?chatArea="+chatHistory+"&userInput="+newChat+'&lat=' + lat + '&lon=' + lng;
+      request.open("GET", path); //sends request asynchronously
+      request.onreadystatechange = showAnswer;
+      request.send();
+	}
+	
+	function showAnswer(){				
+		if(request.readyState==4){  
+			if(request.status==200){						
+				var answer=request.responseText;
+				console.log(answer);
+				var chatHistory=document.getElementById("chatArea");
+				var history=chatHistory.value;
+				history+=answer;
+				chatHistory.value=history;
+				document.getElementById("userInput").value="";
+				document.getElementById("chatArea").scrollTop=document.getElementById("chatArea").scrollHeight;
+//				document.getElementById("availabilityInput").style.display="none";
+			}
+		}					
+	}
+  
   init();
 
 })();
